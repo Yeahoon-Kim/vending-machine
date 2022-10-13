@@ -10,10 +10,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent), ui(new Ui::Widget) {
     ui->pbMilk->setEnabled(false);
 }
 
-Widget::~Widget()
-{
-    delete ui;
-}
+Widget::~Widget() { delete ui; }
 
 void Widget::changeMoney(int diff) {
     this->money += diff;
@@ -25,48 +22,25 @@ void Widget::changeMoney(int diff) {
     checkMilk();
 }
 
-void Widget::checkCoffee() {
-    if(this->money >= 100) ui->pbCoffee->setEnabled(true);
-    else ui->pbCoffee->setEnabled(false);
-}
+void Widget::checkCoffee() { ui->pbCoffee->setEnabled(this->money >= 100); }
 
-void Widget::checkTea() {
-    if(this->money >= 150) ui->pbTea->setEnabled(true);
-    else ui->pbTea->setEnabled(false);
-}
+void Widget::checkTea() { ui->pbTea->setEnabled(this->money >= 150); }
 
-void Widget::checkMilk() {
-    if(this->money >= 200) ui->pbMilk->setEnabled(true);
-    else ui->pbMilk->setEnabled(false);
-}
+void Widget::checkMilk() { ui->pbMilk->setEnabled(this->money >= 200); }
 
-void Widget::on_pb500_clicked() {
-    changeMoney(500);
-}
+void Widget::on_pb500_clicked() { changeMoney(500); }
 
-void Widget::on_pb100_clicked() {
-    changeMoney(100);
-}
+void Widget::on_pb100_clicked() { changeMoney(100); }
 
-void Widget::on_pb50_clicked() {
-    changeMoney(50);
-}
+void Widget::on_pb50_clicked() { changeMoney(50); }
 
-void Widget::on_pb10_clicked() {
-    changeMoney(10);
-}
+void Widget::on_pb10_clicked() { changeMoney(10); }
 
-void Widget::on_pbCoffee_clicked() {
-    changeMoney(-100);
-}
+void Widget::on_pbCoffee_clicked() { changeMoney(-100); }
 
-void Widget::on_pbTea_clicked() {
-    changeMoney(-150);
-}
+void Widget::on_pbTea_clicked() { changeMoney(-150); }
 
-void Widget::on_pbMilk_clicked() {
-    changeMoney(-200);
-}
+void Widget::on_pbMilk_clicked() { changeMoney(-200); }
 
 void Widget::on_pbReset_clicked() {
     QMessageBox msg;
@@ -89,7 +63,4 @@ void Widget::on_pbReset_clicked() {
     changeMoney(-this->money);
 
     msg.information(this, "Reset", leftCoin);
-
-
 }
-
