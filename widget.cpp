@@ -50,10 +50,10 @@ void Widget::on_pbReset_clicked() {
 
     leftCoin = "Left money: " + QString::number(this->money) + ",\n";
 
-    while(this->money >= 500) num500++, this->money -= 500;
-    while(this->money >= 100) num100++, this->money -= 100;
-    while(this->money >= 50) num50++, this->money -= 50;
-    while(this->money >= 10) num10++, this->money -= 10;
+    num500 = this->money / 500, this->money %= 500;
+    num100 = this->money / 100, this->money %= 100;
+    num50 = this->money / 50, this->money %= 50;
+    num10 = this->money / 10, this->money %= 10;
 
     leftCoin += "* 500: " + QString::number(num500) + ",\n" +
                 "* 100: " + QString::number(num100) + ",\n" +
